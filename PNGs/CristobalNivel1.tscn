@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqdalw0jvcbgx"]
+
+[ext_resource type="Script" path="res://PNGs/CristobalNivel1.gd" id="1_0w80v"]
+[ext_resource type="Texture2D" uid="uid://dmk27d1weuymh" path="res://PNGs/output.png" id="2_i3d07"]
+[ext_resource type="Script" path="res://PNGs/Area3DParaEnemigo1.gd" id="3_b2l6x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rabup"]
+
+[node name="CristobalNivel1" type="CharacterBody3D" groups=["Target"]]
+motion_mode = 1
+script = ExtResource("1_0w80v")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.21, 0, 0, 0, 0.21, 0, 0, 0, 0.21, 0, 0, 0)
+texture = ExtResource("2_i3d07")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("3_b2l6x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0738314, 0)
+shape = SubResource("CapsuleShape3D_rabup")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0738314, 0)
+shape = SubResource("CapsuleShape3D_rabup")
